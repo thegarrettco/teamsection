@@ -10,11 +10,13 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #333e4e;
     background-color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     padding: 0px;
-    max-width: 3800px;
+    width: 100%;
     margin: 0 auto;
     text-align: left;
 }
@@ -41,8 +43,6 @@ body {
     height: 60px;
     opacity: 0.22;
     margin-top: -4px;
-
-    /* optional */
     transform: rotate(-6deg);
 }
 
@@ -69,7 +69,7 @@ body {
 .team-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: clamp(16px, 3vw, 40px);
     align-items: start;
 }
 
@@ -78,9 +78,9 @@ body {
 }
 
 .team-photo {
-    width: 220px;
-    height: 250px;
-    margin: 0 0 20px 0;
+    width: clamp(100px, 16vw, 220px);
+    height: clamp(115px, 18.5vw, 250px);
+    margin: 0 0 clamp(10px, 1.5vw, 20px) 0;
     border-radius: 5%;
     overflow: hidden;
 
@@ -90,15 +90,17 @@ body {
         0 8px 24px rgba(0,0,0,0.08),
         0 2px 8px rgba(0,112,185,0.10);
 
-    transition: all 0.3s ease;
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
 }
 
 .team-photo:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 
     box-shadow:
-        0 14px 32px rgba(0,0,0,0.10),
-        0 4px 14px rgba(0,112,185,0.14);
+        0 10px 24px rgba(0,0,0,0.08),
+        0 4px 12px rgba(0,112,185,0.14);
 }
 
 .team-photo img {
@@ -109,24 +111,24 @@ body {
 }
 
 .team-name {
-    font-size: 18px;
+    font-size: clamp(12px, 1.4vw, 18px);
     font-weight: 600;
     color: #0070b9;
     margin-bottom: 6px;
 }
 
 .team-title {
-    font-size: 14px;
+    font-size: clamp(10px, 1vw, 14px);
     font-weight: 400;
     color: #333e4e;
     line-height: 1.5;
-    margin-bottom: 18px;
-    padding-right: 20px;
+    margin-bottom: clamp(10px, 1.4vw, 18px);
+    padding-right: clamp(0px, 1.5vw, 20px);
 }
 
 .contact-link {
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: clamp(9px, 0.85vw, 12px);
     font-weight: 600;
     color: #333e4e;
     background: none;
@@ -137,42 +139,14 @@ body {
     text-transform: uppercase;
     text-decoration: none;
 
-    transition: opacity 0.2s ease;
+    transition: opacity 0.22s ease;
 }
 
 .contact-link:hover {
     text-decoration: underline;
     opacity: 0.75;
 }
-
-/* MOBILE */
-
-@media (max-width: 1100px) {
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 50px 30px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .header h1 {
-        font-size: 32px;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .team-photo {
-        width: 150px;
-        height: 150px;
-    }
-}
 </style>
-
-<body>
 
 <div class="container">
 
